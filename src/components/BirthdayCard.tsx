@@ -198,11 +198,10 @@ export const BirthdayCard = () => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
-  const [showForm, setShowForm] = useState(true);
-  const [birthdayDetails, setBirthdayDetails] = useState<BirthdayDetails>({
-    name: '',
-    birthDate: '',
-    photo: null
+  const [birthdayDetails] = useState<BirthdayDetails>({
+    name: 'S.Harsha Vardhan Reddy',
+    birthDate: '2005-07-27',
+    photo: '/lovable-uploads/cfb8550e-ab1a-4f91-916f-393cf762c6b8.png'
   });
 
   const formatBirthdayDate = (dateString: string) => {
@@ -250,33 +249,6 @@ export const BirthdayCard = () => {
     setTimeout(() => setShowConfetti(false), 3000);
   };
 
-  const handleFormComplete = () => {
-    setShowForm(false);
-    toast(`Birthday card created for ${birthdayDetails.name}! 🎉`, {
-      duration: 3000,
-      className: "bg-gradient-to-r from-green-500 to-blue-600 text-white border-none",
-    });
-  };
-
-  if (showForm) {
-    return (
-      <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-background via-secondary/30 to-accent/20">
-        <div className="relative">
-          {/* Floating decorative elements */}
-          <FloatingIcon icon={Sparkles} className="top-0 left-0" delay={0} />
-          <FloatingIcon icon={Heart} className="top-0 right-0" delay={1} />
-          <FloatingIcon icon={Gift} className="bottom-0 left-0" delay={2} />
-          <FloatingIcon icon={Cake} className="bottom-0 right-0" delay={0.5} />
-          
-          <PersonalizationForm 
-            details={birthdayDetails}
-            onUpdate={setBirthdayDetails}
-            onComplete={handleFormComplete}
-          />
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="relative min-h-screen flex items-center justify-center p-4 overflow-hidden">
@@ -292,14 +264,6 @@ export const BirthdayCard = () => {
       {/* Confetti */}
       <Confetti isActive={showConfetti} />
 
-      {/* Back to form button */}
-      <Button
-        onClick={() => setShowForm(true)}
-        variant="outline"
-        className="absolute top-4 left-4 z-10 border-primary/20 hover:border-primary"
-      >
-        Edit Details
-      </Button>
 
       {/* Main card container with 3D perspective */}
       <div className="relative perspective-1000">
