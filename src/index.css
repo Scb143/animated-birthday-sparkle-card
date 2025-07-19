@@ -8,35 +8,56 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 315 100% 97%;
+    --foreground: 315 25% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 315 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 315 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 315 100% 65%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 45 100% 85%;
+    --secondary-foreground: 315 25% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 315 20% 95%;
+    --muted-foreground: 315 10% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 270 100% 75%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 315 30% 90%;
+    --input: 315 30% 90%;
+    --ring: 315 100% 65%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+    
+    /* Birthday theme colors */
+    --birthday-pink: 330 100% 70%;
+    --birthday-purple: 270 100% 75%;
+    --birthday-gold: 45 100% 60%;
+    --birthday-celebration: 315 100% 65%;
+    
+    /* Gradients */
+    --gradient-birthday: linear-gradient(135deg, hsl(var(--birthday-pink)), hsl(var(--birthday-purple)));
+    --gradient-celebration: linear-gradient(45deg, hsl(var(--birthday-gold)), hsl(var(--birthday-celebration)));
+    --gradient-confetti: linear-gradient(180deg, hsl(var(--background)), hsl(var(--birthday-pink) / 0.1));
+    
+    /* Animations */
+    --transition-festive: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --bounce-celebration: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Shadows */
+    --shadow-birthday: 0 20px 60px hsl(var(--birthday-celebration) / 0.3);
+    --shadow-float: 0 10px 30px hsl(var(--birthday-purple) / 0.2);
+
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +122,23 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
   }
 }
